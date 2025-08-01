@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganesh's Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <style>
+    :root {
+      --bg-color: #121212;
+      --card-color: #1e1e1e;
+      --text-color: white;
+      --highlight: #ffc107;
+      --accent: #a463f2;
+    }
+
+    body.light-mode {
+      --bg-color: #f8f9fa;
+      --card-color: #ffffff;
+      --text-color: #212529;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    .custom-navbar {
+      background-color: var(--card-color);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-navbar .nav-link {
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .custom-navbar .nav-link:hover,
+    .custom-navbar .nav-link.active {
+      color: var(--highlight);
+    }
+
+    .hero {
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .project-card {
+      background-color: var(--card-color);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skills-section {
+      background-color: var(--bg-color);
+    }
+
+    .skill-card {
+      background-color: var(--card-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-icon {
+      font-size: 48px;
+      color: #7257f2;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar-skill {
+      width: 100%;
+      height: 6px;
+      background-color: #333;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 10px;
+    }
+
+    .resume-section, .contact-section {
+      background-color: var(--card-color);
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    footer {
+      background-color: var(--card-color);
+    }
+
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+	.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Mode Toggle -->
+<div class="mode-toggle">
+  <button id="toggleMode" class="btn btn-warning">Toggle Mode</button>
+</div>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+  <div class="container justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item mx-2">
+        <a class="nav-link fw-bold" href="#about">About Me</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link fw-bold" href="#skills">Skills</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link fw-bold" href="#projects">Projects</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link fw-bold" href="#resume">Resume</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link fw-bold" href="#contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Hi, I'm Ganesh </h1>
+    <p class="lead">A passionate full stack java developer building responsive and creative websites.</p>
+    <a href="#projects" class="btn btn-primary mt-3">View Projects</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container text-center">
+    <h2 class="mb-4">About Me</h2>
+    <img src="images/pic.jpeg" alt="Ganesh" style="width: 150px; 
+       height: 150px; 
+       border-radius: 50%; 
+       object-fit: cover; 
+       object-position: center center; 
+       display: block; 
+       margin: 0 auto 20px auto; width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom:20px;">
+    <p class="lead mx-auto" style="max-width: 700px;">
+      I’m Kondameedi Ganesh, a passionate Full Stack Java Developer with strong skills in HTML, CSS, JavaScript, React, Java and SQL. Explore my projects to see interactive apps and data-driven solutions.
+    </p>
+  </div>
+</section>
+
+
+<!-- Skills -->
+<section class="skills-section" id="skills">
+  <div class="container text-center">
+    <h2 class="mb-5">Skills</h2>
+    <div class="row g-4">
+      <!-- Repeatable Skill Cards -->
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-html5-plain skill-icon"></i><div class="skill-name">HTML</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 100%;"></div></div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-css3-plain skill-icon"></i><div class="skill-name">CSS</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 100%;"></div></div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-javascript-plain skill-icon"></i><div class="skill-name">JavaScript</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 85%;"></div></div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-java-plain skill-icon"></i><div class="skill-name">Java</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 100%;"></div></div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-mysql-plain skill-icon"></i><div class="skill-name">SQL</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 100%;"></div></div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-react-original skill-icon"></i><div class="skill-name">React JS</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 80%;"></div></div></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="skill-card"><i class="devicon-spring-plain skill-icon"></i><div class="skill-name">Spring Boot</div><div class="progress-bar-skill"><div class="progress-fill" style="width: 85%;"></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card project-card p-3"><h5 style='color:white'>Weather App</h5><p style='color:white'>This project showcases a dynamic web application that fetches real-time weather information based on user input.Built using HTML, CSS, JS, and open weather API.</p><a href="https://github.com/Ganesh20043/Weather-Update" class="btn btn-outline-primary btn-sm">View</a></div></div>
+      <div class="col-md-4"><div class="card project-card p-3"><h5 style='color:white'>ONLIINE_LECTURER_PLANNING</h5><p style='color:white'>built using java,html,css,bootstrap Developed a responsive web-based platform enabling students and faculty to attend lectures and monitor syllabus 
+progress in real-time. .</p><a href="https://github.com/Ganesh20043/JAVA_PROJECT" class="btn btn-outline-primary btn-sm">View</a></div></div>
+      <div class="col-md-4"><div class="card project-card p-3"><h5 style='color:white'>Andhra Pradesh State Finance Corporation (APSFC)</h5><p style='color:white'> The system mainly deals with the automation of the activities performed at Andhra Pradesh State Finance Corpora
+tion (APSFC).</p><a href="https://github.com/Ganesh20043/Project" class="btn btn-outline-primary btn-sm">View</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume" class="resume-section text-center py-5">
+  <div class="container">
+    <h2 class="section-title mb-4">📄 My Resume</h2>
+    <p class="mb-4">Download my resume in PDF format</p>
+    <a href="https://drive.google.com/file/d/1ZtjqBhmfeTQjWYyTdAqZtqqiSYb2vyUD/view?usp=sharing" class="btn btn-outline-light btn-lg" download><i class="fas fa-download me-2"></i>Download Resume</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section text-center py-5">
+  <div class="container">
+    <h2 class="section-title mb-4">📬 Contact Me</h2>
+    <p class="lead">Feel free to reach out to me via email:</p>
+    <a href="mailto:kondameediganesh3@gmail.com" class="btn btn-outline-light btn-lg">
+      <i class="fas fa-envelope me-2"></i>kondameediganesh3@gmail.com
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-white text-center py-3">
+  &copy; 2025 Ganesh. All rights reserved.
+</footer>
+
+<!-- Scripts -->
+<script>
+  const toggleBtn = document.getElementById('toggleMode');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
